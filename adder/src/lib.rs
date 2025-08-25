@@ -1,37 +1,24 @@
-#[derive(Debug)]
-struct Rectangle{
-    width: u32,
-    height: u32,
+pub fn add_two(a:i32)-> i32 {
+    a + 2
 }
-
-
-impl Rectangle { 
-
-    fn can_hold(&self, other: &Rectangle) -> bool {
-        self.width > other.width && self.height > other.height
-    }
-}
-
-
 #[cfg(test)]
-
 mod  tests{
     use super::*;
 
     #[test]
-    fn larager_can_hold_smaller(){
-        let larger: Rectangle = Rectangle { width: 8, height: 9 };
-        let smaller: Rectangle = Rectangle { width: 5, height: 1 };
-
-        assert!(larger.can_hold(&smaller));
+    fn add_two_and_two(){
+        assert_eq!(4, add_two(2));
     }
-
     #[test]
-    fn smaller_cannot_hold_larger(){
-        let larger:Rectangle = Rectangle { width: 8, height: 7 };
-        let smaller:Rectangle = Rectangle { width: 5, height: 1 };
-
-          assert!(!smaller.can_hold(&larger));
+    fn add_three_and_two(){
+        assert_eq!(5, add_two(3));
     }
+    #[test]
+    fn one_hundred(){
+        assert_eq!(102, add_two(100));
+    }
+
+  
+
 
 }
